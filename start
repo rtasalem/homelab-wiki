@@ -1,0 +1,13 @@
+#!/bin/bash
+
+set -e
+
+docker network create homelab_net
+
+docker compose \
+  -f docker/compose.portainer.yaml \
+  -f docker/compose.npm.yaml \
+  -f docker/compose.vaultwarden.yaml \
+  -f docker/compose.nextcloud.yaml \
+  -f docker/compose.navidrome.yaml \
+  up -d

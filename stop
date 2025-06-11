@@ -1,0 +1,13 @@
+#!/bin/bash
+
+set -e
+
+docker compose \
+  -f docker/compose.portainer.yaml \
+  -f docker/compose.npm.yaml \
+  -f docker/compose.vaultwarden.yaml \
+  -f docker/compose.nextcloud.yaml \
+  -f docker/compose.navidrome.yaml \
+  down
+
+docker network rm homelab_net
